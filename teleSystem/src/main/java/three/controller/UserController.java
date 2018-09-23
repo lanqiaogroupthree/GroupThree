@@ -25,33 +25,18 @@ public class UserController {
 		}else {
 			HttpSession session = request.getSession();
 			session.setAttribute("admin", resultadmin);
-			return "index";
+			System.out.println(resultadmin);
+			return "redirect:/index.do?skip=index";
 		}
 	}
-	@RequestMapping("/index")
-	public String index(String skip) {
-		System.out.println(skip);
-		switch(skip) {
-			case "index":
-				return "index";
-			case "role":
-				return "role/role_list";
-			case "admin":
-				return "admin/admin_list";
-			case "bill":
-				return "bill/bill_list";
-			case "account":
-				return "account/account_list";
-			case "fee":
-				return "fee/fee_list";
-			case "report":
-				return "report/report_list";
-			case "service":
-				return "service/service_list";
-			case "user":
-				return "user/user_info";
-			default:
-				return "user/user_modi_pwd";
+	@RequestMapping("/modiUserPWD")
+	public String modiUserPWD(String pwdTwice,HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		Admin admin = (Admin)session.getAttribute("admin");
+		if(userService.modiUserPWD(new Admin(admin.getAid(),pwdTwice))) {
+			return "../../login";
+		}else {
+			return "index";
 		}
 	}
 }

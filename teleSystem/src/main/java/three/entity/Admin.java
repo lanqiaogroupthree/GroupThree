@@ -1,5 +1,7 @@
 package three.entity;
 
+import java.util.List;
+
 public class Admin {
 	private int aid = -1;
 	private String aaccount;
@@ -9,6 +11,7 @@ public class Admin {
 	private String aemail;
 	private String adate;
 	private String aimg;
+	private List<String> apower;
 	
 	public Admin() {
 		super();
@@ -16,6 +19,11 @@ public class Admin {
 	public Admin(String aaccount, String apwd) {
 		super();
 		this.aaccount = aaccount;
+		this.apwd = apwd;
+	}
+	public Admin(int aid, String apwd) {
+		super();
+		this.aid = aid;
 		this.apwd = apwd;
 	}
 	public int getAid() {
@@ -66,4 +74,16 @@ public class Admin {
 	public void setAimg(String aimg) {
 		this.aimg = aimg;
 	}
+	public List<String> getApower() {
+		return apower;
+	}
+	public void setApower(List<String> apower) {
+		this.apower = apower;
+	}
+	@Override
+	public String toString() {
+		return "Admin [aid=" + aid + ", aaccount=" + aaccount + ", apwd=" + apwd + ", aname=" + aname + ", atel=" + atel
+				+ ", aemail=" + aemail + ", adate=" + adate + ", aimg=" + aimg + ", apower=" + apower + "]";
+	}
+	
 }

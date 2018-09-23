@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>    
+<!DOCTYPE mapper    
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="three.mapper.RoleMapper">
+	
+	
+	<!-- 查询角色信息 -->
+	<select id="selectRoleByrid" resultType="role">
+		select rid,rname from role where rid=#{rid}
+	</select>
+	
+	<!-- 修改角色信息 -->
+	<update id="updateRoleByrid">
+		update role set rname=#{rname} where rid=#{rid}
+	</update>
+	
+	<!-- 添加添加信息 -->
+	<insert id="insertRoleByrid">
+		insert into role values(null,#{rname})
+	</insert>
+	
+	<!-- 删除角色信息 -->
+	<delete id="deleteRoleByrid">
+		delete from role where rid=#{rid}
+	</delete>
+</mapper>

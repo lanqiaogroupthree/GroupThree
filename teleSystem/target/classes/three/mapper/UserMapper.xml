@@ -6,11 +6,25 @@
 <mapper namespace="three.mapper.UserMapper">
 	
 	
-
+	<!-- 查询用户信息 -->
 	<select id="login" resultType="Admin">
 		select aid,aaccount,apwd,aname,atel,aemail from admin where aaccount=#{aaccount} and apwd=#{apwd}
 	</select>
-
 	
-
+	<!-- 根据aid查询用户权限信息 -->
+	
+	<!-- <resultMap type="Map" id="selectUserPowerByAid">
+		<id property="apower" column=""/>
+		
+	</resultMap> -->
+	
+	<select id="selectUserPowerByAid" resultType="String">
+		select pskip from power where pid in (select pid from rpform where rid in (select rid from arform where aid=#{aid}))
+	</select>
+	
+	<!-- 修改用户密码 -->
+	<update id="modiUserPWD">
+		update admin set apwd=#{apwd} where aid=#{aid}
+	</update>
+	
 </mapper>

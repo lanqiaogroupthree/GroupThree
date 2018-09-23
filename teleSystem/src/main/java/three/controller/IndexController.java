@@ -1,7 +1,8 @@
 package three.controller;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+@Controller
 public class IndexController {
 	@RequestMapping("/index")
 	public String index(String skip) {
@@ -23,10 +24,10 @@ public class IndexController {
 				return "report/report_list";
 			case "service":
 				return "service/service_list";
-			case "user":
-				return "user/user_info";
-			default:
+			case "user_modi":
 				return "user/user_modi_pwd";
+			default:
+				return "user/user_info";
 		}
 	}
 }
