@@ -27,4 +27,13 @@
 		update admin set apwd=#{apwd} where aid=#{aid}
 	</update>
 	
+	<!-- 查询所有admin -->
+	<select id="selectAdmin" resultType="Admin">
+		select aid,aaccount,apwd,aname,atel,aemail from admin
+	</select>
+	
+	<!-- 通过aid查询rid -->
+	<select id="selectRidByaid" resultType="String">
+		select rid from arform where aid=#{aid}
+	</select>
 </mapper>

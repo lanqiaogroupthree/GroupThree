@@ -11,6 +11,7 @@ public class Admin {
 	private String aemail;
 	private String adate;
 	private String aimg;
+	private List<String> arole;
 	private List<String> apower;
 	
 	public Admin() {
@@ -80,10 +81,18 @@ public class Admin {
 	public void setApower(List<String> apower) {
 		this.apower = apower;
 	}
+	
+	public List<String> getArole() {
+		return arole;
+	}
+	public void setArole(List<String> arole) {
+		this.arole = arole;
+	}
 	@Override
 	public String toString() {
 		return "Admin [aid=" + aid + ", aaccount=" + aaccount + ", apwd=" + apwd + ", aname=" + aname + ", atel=" + atel
-				+ ", aemail=" + aemail + ", adate=" + adate + ", aimg=" + aimg + ", apower=" + apower + "]";
+				+ ", aemail=" + aemail + ", adate=" + adate + ", aimg=" + aimg + ", arole=" + arole + ", apower="
+				+ apower + "]";
 	}
 	
 }

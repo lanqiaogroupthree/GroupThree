@@ -22,4 +22,15 @@ public interface UserMapper {
 	 * @return
 	 */
 	public int modiUserPWD(Admin admin);
+	/**
+	 * 查询所有admin
+	 * @return
+	 */
+	public List<Admin> selectAdmin();
+	/**
+	 * 通过aid查询rid
+	 * @param aid
+	 * @return
+	 */
+	public List<String> selectRidByaid(Integer aid);
 }

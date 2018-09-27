@@ -8,7 +8,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import three.entity.Admin;
+import three.service.AdminService;
 import three.service.UserService;
+import three.service.impl.AdminServiceImpl;
 
 @Controller
 public class UserController {
@@ -26,6 +28,7 @@ public class UserController {
 			HttpSession session = request.getSession();
 			session.setAttribute("admin", resultadmin);
 			System.out.println(resultadmin);
+
 			return "redirect:/index.do?skip=index";
 		}
 	}
