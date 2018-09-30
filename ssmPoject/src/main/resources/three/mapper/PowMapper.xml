@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="three.mapper.PowMapper">
+		<!-- 根据管理员ID查询所有的角色 -->
+	    <select id="selectRoleByaid" resultType="Role">
+	        select * from role where rid in(select rid from arform where aid=#{aid});	       
+	    </select>	    
+	   <!-- 根据管理员ID查询所有的权限 -->
+	   <select id="selectAllPowerByAid" resultType="Power">
+			select * from power where pid in (select pid from rpform where rid in (select rid from arform where aid=#{aid}))
+		</select>	
+</mapper>
